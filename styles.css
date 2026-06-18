@@ -726,44 +726,84 @@ body {
 }
 
 
-/* Video Player Styles */
-.video-player-container {
-    max-width: 900px;
-    margin: 0 auto;
+/* Video Gallery Styles */
+.video-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.video-gallery-item {
     background: white;
     border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
 }
 
-#tourVideo {
+.video-gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.video-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.video-header h3 {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    margin: 0;
+}
+
+.video-header h3 i {
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.video-duration {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.video-gallery-item video {
     width: 100%;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    margin-bottom: 1rem;
 }
 
-.video-controls-info {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: var(--light-color);
-    border-radius: 10px;
-    border-left: 4px solid var(--primary-color);
-}
-
-.video-controls-info code {
-    background: #e2e8f0;
-    padding: 0.2rem 0.5rem;
-    border-radius: 4px;
-    font-family: 'Courier New', monospace;
-    color: var(--danger-color);
-}
-
-.video-controls-info ol {
+.video-description {
     color: var(--text-color);
+    font-size: 0.95rem;
+    margin: 0;
 }
 
-.video-controls-info ol li {
-    margin-bottom: 0.5rem;
+.video-info-box {
+    background: linear-gradient(135deg, #eff6ff, #f0f9ff);
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    border-radius: 10px;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.video-info-box i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.video-info-box p {
+    margin: 0;
+    color: var(--text-color);
 }
 
 /* Floor Plans Section */
@@ -834,8 +874,8 @@ body {
 
 /* Responsive Video */
 @media (max-width: 768px) {
-    .video-player-container {
-        padding: 1rem;
+    .video-gallery-grid {
+        grid-template-columns: 1fr;
     }
     
     .floor-plans-grid {

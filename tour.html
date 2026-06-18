@@ -279,35 +279,72 @@
         </div>
     </section>
 
-    <!-- Interactive Walkthrough with Local Video Support -->
+    <!-- Interactive Walkthrough with Multiple Videos -->
     <section class="interactive-walkthrough">
         <div class="container">
-            <h2 class="section-title">🎥 Campus Virtual Tour Video</h2>
-            <p style="margin-bottom: 2rem;">Experience our school campus through this immersive walkthrough</p>
+            <h2 class="section-title">🎥 Campus Virtual Tour Videos</h2>
+            <p style="margin-bottom: 3rem;">Experience our school campus through these immersive walkthroughs</p>
             
-            <!-- Local Video Player -->
-            <div class="video-player-container">
-                <video id="tourVideo" controls poster="images/video-poster.jpg">
-                    <source src="videos/school-tour.mp4" type="video/mp4">
-                    <source src="videos/school-tour.webm" type="video/webm">
-                    Your browser does not support the video tag.
-                </video>
-                <div class="video-controls-info">
-                    <p><i class="fas fa-info-circle"></i> <strong>How to add your video:</strong></p>
-                    <ol style="text-align: left; margin-top: 1rem; padding-left: 2rem;">
-                        <li>Create a folder called <code>videos</code> in your project root</li>
-                        <li>Save your video as <code>school-tour.mp4</code></li>
-                        <li>Recommended: 1080p resolution, 2-5 minutes duration</li>
-                        <li>Optional: Add a thumbnail image as <code>images/video-poster.jpg</code></li>
-                    </ol>
+            <!-- Video Gallery Grid -->
+            <div class="video-gallery-grid">
+                <!-- Video 1: Campus Tour -->
+                <div class="video-gallery-item">
+                    <div class="video-header">
+                        <h3><i class="fas fa-video"></i> Campus Tour</h3>
+                        <span class="video-duration">Overview</span>
+                    </div>
+                    <video controls poster="images/video-poster.jpg">
+                        <source src="videos/campus tour.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="video-description">Complete walkthrough of our beautiful campus facilities</p>
+                </div>
+
+                <!-- Video 2: Classroom Walkthrough -->
+                <div class="video-gallery-item">
+                    <div class="video-header">
+                        <h3><i class="fas fa-chalkboard-teacher"></i> Classroom Walkthrough</h3>
+                        <span class="video-duration">Learning Spaces</span>
+                    </div>
+                    <video controls poster="images/video-poster.jpg">
+                        <source src="videos/classroom walkthrough.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="video-description">Tour of our modern classrooms and learning environments</p>
+                </div>
+
+                <!-- Video 3: School Hallway -->
+                <div class="video-gallery-item">
+                    <div class="video-header">
+                        <h3><i class="fas fa-building"></i> School Hallway</h3>
+                        <span class="video-duration">Corridors</span>
+                    </div>
+                    <video controls poster="images/video-poster.jpg">
+                        <source src="videos/school hallway.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="video-description">Walk through our clean and spacious hallways</p>
+                </div>
+
+                <!-- Video 4: University Building -->
+                <div class="video-gallery-item">
+                    <div class="video-header">
+                        <h3><i class="fas fa-university"></i> University Building</h3>
+                        <span class="video-duration">Facilities</span>
+                    </div>
+                    <video controls poster="images/video-poster.jpg">
+                        <source src="videos/university building.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <p class="video-description">Overview of our main building and infrastructure</p>
                 </div>
             </div>
 
-            <!-- Alternative: YouTube Embed (Uncomment if you prefer YouTube)
-            <div class="walkthrough-video">
-                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+            <!-- Video Instructions -->
+            <div class="video-info-box">
+                <i class="fas fa-info-circle"></i>
+                <p><strong>Tip:</strong> Click on any video to play. Use fullscreen mode for the best viewing experience!</p>
             </div>
-            -->
         </div>
     </section>
 
