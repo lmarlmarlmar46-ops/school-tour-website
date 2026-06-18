@@ -348,80 +348,298 @@
         </div>
     </section>
 
-    <!-- Floor Plan Images Section -->
-    <section class="floor-plans-section" style="padding: 4rem 0; background: var(--light-color);">
+    <!-- Enhanced Floor Plans Section -->
+    <section class="floor-plans-section" style="padding: 5rem 0; background: var(--light-color);">
         <div class="container">
-            <h2 class="section-title">📐 Floor Plans & Layouts</h2>
-            <p style="text-align: center; margin-bottom: 3rem;">Visual guide to each floor of our campus</p>
+            <h2 class="section-title">📐 Detailed Floor Plans & Layouts</h2>
+            <p style="text-align: center; margin-bottom: 1rem; font-size: 1.1rem;">Explore each floor of our 5-story campus building</p>
+            <p style="text-align: center; margin-bottom: 3rem; color: #64748b;">Complete with room numbers, capacity, and facility details</p>
             
             <div class="floor-plans-grid">
                 <!-- Ground Floor Plan -->
                 <div class="floor-plan-card">
                     <div class="floor-plan-header">
-                        <h3><i class="fas fa-layer-group"></i> Ground Floor</h3>
+                        <div>
+                            <h3><i class="fas fa-layer-group"></i> Ground Floor</h3>
+                            <span class="floor-number">Level 0</span>
+                        </div>
                         <span class="floor-badge">Main Entrance</span>
                     </div>
                     <div class="floor-plan-image">
                         <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="Ground Floor - Reception and Admin">
+                        <div class="floor-overlay">
+                            <div class="floor-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-door-open"></i>
+                                    <span>15 Rooms</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>300+ Capacity</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="floor-plan-details">
-                        <p><strong>Key Areas:</strong> Reception, Admin Offices, Auditorium, Cafeteria</p>
+                        <h4>🏢 Main Facilities:</h4>
+                        <ul class="facility-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Reception Area</strong> - Main entrance desk</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Admin Offices</strong> - Rooms G01-G05</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Auditorium</strong> - 250 seating capacity</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Cafeteria</strong> - Full dining hall</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Student Lounge</strong> - Recreation area</li>
+                        </ul>
+                        <div class="floor-actions">
+                            <button class="view-detail-btn" onclick="alert('3D view coming soon!')">
+                                <i class="fas fa-cube"></i> View 3D
+                            </button>
+                            <button class="download-plan-btn" onclick="alert('Download feature coming soon!')">
+                                <i class="fas fa-download"></i> Download Plan
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- First Floor Plan -->
                 <div class="floor-plan-card">
                     <div class="floor-plan-header">
-                        <h3><i class="fas fa-layer-group"></i> First Floor</h3>
+                        <div>
+                            <h3><i class="fas fa-layer-group"></i> First Floor</h3>
+                            <span class="floor-number">Level 1</span>
+                        </div>
                         <span class="floor-badge">Academic Wing</span>
                     </div>
                     <div class="floor-plan-image">
                         <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop" alt="First Floor - Classrooms">
+                        <div class="floor-overlay">
+                            <div class="floor-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-door-open"></i>
+                                    <span>25 Rooms</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>750+ Capacity</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="floor-plan-details">
-                        <p><strong>Key Areas:</strong> Classrooms 101-120, Faculty Rooms, Resource Center</p>
+                        <h4>📚 Main Facilities:</h4>
+                        <ul class="facility-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Classrooms 101-120</strong> - 30-35 students each</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Faculty Rooms</strong> - Rooms F01-F05</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Resource Center</strong> - Study materials</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Staff Lounge</strong> - Teacher's area</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Meeting Rooms</strong> - Conference spaces</li>
+                        </ul>
+                        <div class="floor-actions">
+                            <button class="view-detail-btn" onclick="alert('3D view coming soon!')">
+                                <i class="fas fa-cube"></i> View 3D
+                            </button>
+                            <button class="download-plan-btn" onclick="alert('Download feature coming soon!')">
+                                <i class="fas fa-download"></i> Download Plan
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Second Floor Plan -->
-                <div class="floor-plan-card">
+                <div class="floor-plan-card featured-floor">
                     <div class="floor-plan-header">
-                        <h3><i class="fas fa-layer-group"></i> Second Floor</h3>
+                        <div>
+                            <h3><i class="fas fa-layer-group"></i> Second Floor</h3>
+                            <span class="floor-number">Level 2</span>
+                        </div>
                         <span class="floor-badge">Science & Tech</span>
                     </div>
                     <div class="floor-plan-image">
                         <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop" alt="Second Floor - Science Labs">
+                        <div class="floor-overlay">
+                            <div class="floor-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-door-open"></i>
+                                    <span>20 Rooms</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>500+ Capacity</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="floor-plan-details">
-                        <p><strong>Key Areas:</strong> Science Labs, Computer Labs, STEM Rooms</p>
+                        <h4>🔬 Main Facilities:</h4>
+                        <ul class="facility-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Physics Labs</strong> - Rooms 201-204</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Chemistry Labs</strong> - Rooms 205-208</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Biology Labs</strong> - Rooms 209-212</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Computer Labs</strong> - 60 workstations each</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>STEM Rooms</strong> - Innovation spaces</li>
+                        </ul>
+                        <div class="floor-actions">
+                            <button class="view-detail-btn" onclick="alert('3D view coming soon!')">
+                                <i class="fas fa-cube"></i> View 3D
+                            </button>
+                            <button class="download-plan-btn" onclick="alert('Download feature coming soon!')">
+                                <i class="fas fa-download"></i> Download Plan
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Third Floor Plan -->
                 <div class="floor-plan-card">
                     <div class="floor-plan-header">
-                        <h3><i class="fas fa-layer-group"></i> Third Floor</h3>
-                        <span class="floor-badge">Arts & Sports</span>
+                        <div>
+                            <h3><i class="fas fa-layer-group"></i> Third Floor</h3>
+                            <span class="floor-number">Level 3</span>
+                        </div>
+                        <span class="floor-badge">Arts & Library</span>
                     </div>
                     <div class="floor-plan-image">
                         <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=600&fit=crop" alt="Third Floor - Library and Arts">
+                        <div class="floor-overlay">
+                            <div class="floor-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-door-open"></i>
+                                    <span>18 Rooms</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>400+ Capacity</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="floor-plan-details">
-                        <p><strong>Key Areas:</strong> Library, Art Studios, Music Rooms, Dance Studio</p>
+                        <h4>🎨 Main Facilities:</h4>
+                        <ul class="facility-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Library</strong> - 50,000+ books collection</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Reading Rooms</strong> - Silent study areas</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Art Studios</strong> - Rooms 301-305</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Music Rooms</strong> - Soundproof spaces</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Dance Studio</strong> - Full-length mirrors</li>
+                        </ul>
+                        <div class="floor-actions">
+                            <button class="view-detail-btn" onclick="alert('3D view coming soon!')">
+                                <i class="fas fa-cube"></i> View 3D
+                            </button>
+                            <button class="download-plan-btn" onclick="alert('Download feature coming soon!')">
+                                <i class="fas fa-download"></i> Download Plan
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Fourth Floor Plan -->
                 <div class="floor-plan-card">
                     <div class="floor-plan-header">
-                        <h3><i class="fas fa-layer-group"></i> Fourth Floor</h3>
-                        <span class="floor-badge">Recreation</span>
+                        <div>
+                            <h3><i class="fas fa-layer-group"></i> Fourth Floor</h3>
+                            <span class="floor-number">Level 4</span>
+                        </div>
+                        <span class="floor-badge">Sports & Recreation</span>
                     </div>
                     <div class="floor-plan-image">
                         <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop" alt="Fourth Floor - Gymnasium">
+                        <div class="floor-overlay">
+                            <div class="floor-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-door-open"></i>
+                                    <span>12 Rooms</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>600+ Capacity</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="floor-plan-details">
-                        <p><strong>Key Areas:</strong> Indoor Gymnasium, Sports Complex, Fitness Center</p>
+                        <h4>⚽ Main Facilities:</h4>
+                        <ul class="facility-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Indoor Gymnasium</strong> - Full basketball court</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Fitness Center</strong> - Modern equipment</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Yoga Studio</strong> - Wellness space</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Sports Equipment Room</strong> - Storage</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Changing Rooms</strong> - Locker facilities</li>
+                        </ul>
+                        <div class="floor-actions">
+                            <button class="view-detail-btn" onclick="alert('3D view coming soon!')">
+                                <i class="fas fa-cube"></i> View 3D
+                            </button>
+                            <button class="download-plan-btn" onclick="alert('Download feature coming soon!')">
+                                <i class="fas fa-download"></i> Download Plan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fifth Floor Plan -->
+                <div class="floor-plan-card">
+                    <div class="floor-plan-header">
+                        <div>
+                            <h3><i class="fas fa-layer-group"></i> Fifth Floor</h3>
+                            <span class="floor-number">Level 5</span>
+                        </div>
+                        <span class="floor-badge">Rooftop & Events</span>
+                    </div>
+                    <div class="floor-plan-image">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop" alt="Fifth Floor - Rooftop Events">
+                        <div class="floor-overlay">
+                            <div class="floor-stats">
+                                <div class="stat-item">
+                                    <i class="fas fa-door-open"></i>
+                                    <span>8 Rooms</span>
+                                </div>
+                                <div class="stat-item">
+                                    <i class="fas fa-users"></i>
+                                    <span>500+ Capacity</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floor-plan-details">
+                        <h4>🎪 Main Facilities:</h4>
+                        <ul class="facility-list">
+                            <li><i class="fas fa-check-circle"></i> <strong>Multi-Purpose Hall</strong> - Events & ceremonies</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Conference Rooms</strong> - Meeting spaces</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Rooftop Garden</strong> - Outdoor relaxation</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Sky Lounge</strong> - Student hangout</li>
+                            <li><i class="fas fa-check-circle"></i> <strong>Observatory Deck</strong> - Panoramic views</li>
+                        </ul>
+                        <div class="floor-actions">
+                            <button class="view-detail-btn" onclick="alert('3D view coming soon!')">
+                                <i class="fas fa-cube"></i> View 3D
+                            </button>
+                            <button class="download-plan-btn" onclick="alert('Download feature coming soon!')">
+                                <i class="fas fa-download"></i> Download Plan
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floor Summary -->
+            <div class="floor-summary">
+                <h3>📊 Complete Building Overview</h3>
+                <div class="summary-stats">
+                    <div class="summary-item">
+                        <div class="summary-number">5</div>
+                        <div class="summary-label">Floors</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-number">98</div>
+                        <div class="summary-label">Total Rooms</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-number">2,950+</div>
+                        <div class="summary-label">Total Capacity</div>
+                    </div>
+                    <div class="summary-item">
+                        <div class="summary-number">50+</div>
+                        <div class="summary-label">Facilities</div>
                     </div>
                 </div>
             </div>

@@ -806,24 +806,31 @@ body {
     color: var(--text-color);
 }
 
-/* Floor Plans Section */
+/* Enhanced Floor Plans Section */
 .floor-plans-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
 }
 
 .floor-plan-card {
     background: white;
-    border-radius: 15px;
+    border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: all 0.3s;
+    border: 2px solid transparent;
 }
 
 .floor-plan-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+.floor-plan-card.featured-floor {
+    border-color: var(--primary-color);
+    box-shadow: 0 5px 30px rgba(37, 99, 235, 0.2);
 }
 
 .floor-plan-header {
@@ -832,44 +839,199 @@ body {
     color: white;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 }
 
 .floor-plan-header h3 {
-    margin: 0;
-    font-size: 1.3rem;
+    margin: 0 0 0.5rem 0;
+    font-size: 1.4rem;
+}
+
+.floor-number {
+    display: block;
+    font-size: 0.85rem;
+    opacity: 0.9;
 }
 
 .floor-badge {
-    background: rgba(255,255,255,0.2);
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
+    background: rgba(255,255,255,0.25);
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
     font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 .floor-plan-image {
-    height: 250px;
+    height: 280px;
     overflow: hidden;
+    position: relative;
 }
 
 .floor-plan-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
+    transition: transform 0.5s;
 }
 
 .floor-plan-card:hover .floor-plan-image img {
-    transform: scale(1.1);
+    transform: scale(1.15);
+}
+
+.floor-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: transform 0.3s;
+}
+
+.floor-plan-card:hover .floor-overlay {
+    transform: translateY(0);
+}
+
+.floor-stats {
+    display: flex;
+    gap: 2rem;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    font-weight: 600;
+}
+
+.stat-item i {
+    font-size: 1.3rem;
+    color: var(--warning-color);
 }
 
 .floor-plan-details {
-    padding: 1.5rem;
+    padding: 2rem;
 }
 
-.floor-plan-details p {
-    margin: 0;
+.floor-plan-details h4 {
+    margin: 0 0 1rem 0;
+    color: var(--dark-color);
+    font-size: 1.1rem;
+}
+
+.facility-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+}
+
+.facility-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.facility-list li:last-child {
+    border-bottom: none;
+}
+
+.facility-list i {
+    color: var(--success-color);
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+.floor-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.view-detail-btn, .download-plan-btn {
+    flex: 1;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.view-detail-btn {
+    background: var(--primary-color);
+    color: white;
+}
+
+.view-detail-btn:hover {
+    background: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.download-plan-btn {
+    background: var(--light-color);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.download-plan-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Floor Summary */
+.floor-summary {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.floor-summary h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--dark-color);
+}
+
+.summary-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+}
+
+.summary-item {
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--light-color), #fff);
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+    transition: all 0.3s;
+}
+
+.summary-item:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+}
+
+.summary-number {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.summary-label {
+    font-size: 1.1rem;
     color: var(--text-color);
+    font-weight: 500;
 }
 
 /* Responsive Video */
