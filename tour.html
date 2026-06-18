@@ -279,15 +279,115 @@
         </div>
     </section>
 
-    <!-- Interactive Walkthrough -->
+    <!-- Interactive Walkthrough with Local Video Support -->
     <section class="interactive-walkthrough">
         <div class="container">
-            <h2 class="section-title">360° Virtual Walkthrough</h2>
-            <p>Experience our campus like you're really here</p>
-            <div class="walkthrough-video">
-                <iframe src="https://www.youtube.com/embed/NC1hR5mFcpU" allowfullscreen></iframe>
+            <h2 class="section-title">🎥 Campus Virtual Tour Video</h2>
+            <p style="margin-bottom: 2rem;">Experience our school campus through this immersive walkthrough</p>
+            
+            <!-- Local Video Player -->
+            <div class="video-player-container">
+                <video id="tourVideo" controls poster="images/video-poster.jpg">
+                    <source src="videos/school-tour.mp4" type="video/mp4">
+                    <source src="videos/school-tour.webm" type="video/webm">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-controls-info">
+                    <p><i class="fas fa-info-circle"></i> <strong>How to add your video:</strong></p>
+                    <ol style="text-align: left; margin-top: 1rem; padding-left: 2rem;">
+                        <li>Create a folder called <code>videos</code> in your project root</li>
+                        <li>Save your video as <code>school-tour.mp4</code></li>
+                        <li>Recommended: 1080p resolution, 2-5 minutes duration</li>
+                        <li>Optional: Add a thumbnail image as <code>images/video-poster.jpg</code></li>
+                    </ol>
+                </div>
             </div>
-            <p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">Sample school virtual tour video - Replace with your own school video</p>
+
+            <!-- Alternative: YouTube Embed (Uncomment if you prefer YouTube)
+            <div class="walkthrough-video">
+                <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+            </div>
+            -->
+        </div>
+    </section>
+
+    <!-- Floor Plan Images Section -->
+    <section class="floor-plans-section" style="padding: 4rem 0; background: var(--light-color);">
+        <div class="container">
+            <h2 class="section-title">📐 Floor Plans & Layouts</h2>
+            <p style="text-align: center; margin-bottom: 3rem;">Visual guide to each floor of our campus</p>
+            
+            <div class="floor-plans-grid">
+                <!-- Ground Floor Plan -->
+                <div class="floor-plan-card">
+                    <div class="floor-plan-header">
+                        <h3><i class="fas fa-layer-group"></i> Ground Floor</h3>
+                        <span class="floor-badge">Main Entrance</span>
+                    </div>
+                    <div class="floor-plan-image">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="Ground Floor - Reception and Admin">
+                    </div>
+                    <div class="floor-plan-details">
+                        <p><strong>Key Areas:</strong> Reception, Admin Offices, Auditorium, Cafeteria</p>
+                    </div>
+                </div>
+
+                <!-- First Floor Plan -->
+                <div class="floor-plan-card">
+                    <div class="floor-plan-header">
+                        <h3><i class="fas fa-layer-group"></i> First Floor</h3>
+                        <span class="floor-badge">Academic Wing</span>
+                    </div>
+                    <div class="floor-plan-image">
+                        <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=600&fit=crop" alt="First Floor - Classrooms">
+                    </div>
+                    <div class="floor-plan-details">
+                        <p><strong>Key Areas:</strong> Classrooms 101-120, Faculty Rooms, Resource Center</p>
+                    </div>
+                </div>
+
+                <!-- Second Floor Plan -->
+                <div class="floor-plan-card">
+                    <div class="floor-plan-header">
+                        <h3><i class="fas fa-layer-group"></i> Second Floor</h3>
+                        <span class="floor-badge">Science & Tech</span>
+                    </div>
+                    <div class="floor-plan-image">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=600&fit=crop" alt="Second Floor - Science Labs">
+                    </div>
+                    <div class="floor-plan-details">
+                        <p><strong>Key Areas:</strong> Science Labs, Computer Labs, STEM Rooms</p>
+                    </div>
+                </div>
+
+                <!-- Third Floor Plan -->
+                <div class="floor-plan-card">
+                    <div class="floor-plan-header">
+                        <h3><i class="fas fa-layer-group"></i> Third Floor</h3>
+                        <span class="floor-badge">Arts & Sports</span>
+                    </div>
+                    <div class="floor-plan-image">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&h=600&fit=crop" alt="Third Floor - Library and Arts">
+                    </div>
+                    <div class="floor-plan-details">
+                        <p><strong>Key Areas:</strong> Library, Art Studios, Music Rooms, Dance Studio</p>
+                    </div>
+                </div>
+
+                <!-- Fourth Floor Plan -->
+                <div class="floor-plan-card">
+                    <div class="floor-plan-header">
+                        <h3><i class="fas fa-layer-group"></i> Fourth Floor</h3>
+                        <span class="floor-badge">Recreation</span>
+                    </div>
+                    <div class="floor-plan-image">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=800&h=600&fit=crop" alt="Fourth Floor - Gymnasium">
+                    </div>
+                    <div class="floor-plan-details">
+                        <p><strong>Key Areas:</strong> Indoor Gymnasium, Sports Complex, Fitness Center</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
