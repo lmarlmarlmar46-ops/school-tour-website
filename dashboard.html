@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Virtual School Tour</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .dashboard-container { padding: 5rem 0; margin-top: 70px; }
+        .dashboard-header { display: flex; justify-content: space-between; 
+                           align-items: center; margin-bottom: 3rem; }
+        .dashboard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .dashboard-card { background: white; padding: 2rem; border-radius: 15px; 
+                         box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .dashboard-card h3 { margin-bottom: 1rem; display: flex; align-items: center; gap: 10px; }
+        .stat-number { font-size: 2.5rem; font-weight: bold; color: var(--primary-color); }
+        .progress-bar { background: var(--border-color); height: 10px; border-radius: 5px; 
+                        overflow: hidden; margin: 1rem 0; }
+        .progress-fill { background: var(--primary-color); height: 100%; transition: width 0.3s; }
+        .activity-item { padding: 1rem 0; border-bottom: 1px solid var(--border-color); }
+        .activity-item:last-child { border-bottom: none; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Campus Virtual Tour</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="tour.html" class="nav-link">Virtual Tour</a>
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="#" class="nav-link" id="logoutBtn">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="dashboard-container">
+        <div class="container">
+            <div class="dashboard-header">
+                <div>
+                    <h1>Welcome, <span id="userName">User</span>!</h1>
+                    <p>Track your virtual tour progress and activities</p>
+                </div>
+                <button class="btn btn-primary" onclick="window.location.href='tour.html'">
+                    <i class="fas fa-play"></i> Continue Tour
+                </button>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-chart-line"></i> Tour Progress</h3>
+                    <div class="stat-number">65%</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%;"></div>
+                    </div>
+                    <p>13 out of 20 facilities explored</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-clock"></i> Time Spent</h3>
+                    <div class="stat-number">2h 45m</div>
+                    <p>Total time exploring campus</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-bookmark"></i> Saved Locations</h3>
+                    <div class="stat-number">7</div>
+                    <p>Facilities bookmarked</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-calendar"></i> Next Event</h3>
+                    <div style="margin-top: 1rem;">
+                        <strong>Open House</strong>
+                        <p>Saturday, June 20, 2026 at 10:00 AM</p>
+                        <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">Register</button>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 3rem;">
+                <div class="dashboard-card">
+                    <h3><i class="fas fa-history"></i> Recent Activity</h3>
+                    <div class="activity-item">
+                        <strong>Gymnasium Tour Completed</strong>
+                        <p style="color: #64748b; font-size: 0.9rem;">2 hours ago</p>
+                    </div>
+                    <div class="activity-item">
+                        <strong>Science Lab Bookmarked</strong>
+                        <p style="color: #64748b; font-size: 0.9rem;">5 hours ago</p>
+                    </div>
+                    <div class="activity-item">
+                        <strong>Computer Lab Tour Completed</strong>
+                        <p style="color: #64748b; font-size: 0.9rem;">1 day ago</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <h3>Profile Information</h3>
+                <div style="margin-top: 2rem;">
+                    <p><strong>Email:</strong> <span id="userEmail"></span></p>
+                    <p><strong>Phone:</strong> <span id="userPhone"></span></p>
+                    <p><strong>Account Type:</strong> <span id="userType"></span></p>
+                    <p><strong>Member Since:</strong> <span id="memberSince"></span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Virtual School Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Check if user is logged in
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = 'login.html';
+        } else {
+            document.getElementById('userName').textContent = currentUser.name;
+            document.getElementById('userEmail').textContent = currentUser.email;
+            document.getElementById('userPhone').textContent = currentUser.phone;
+            document.getElementById('userType').textContent = currentUser.userType;
+            document.getElementById('memberSince').textContent = new Date(currentUser.registeredDate).toLocaleDateString();
+        }
+
+        // Logout
+        document.getElementById('logoutBtn').addEventListener('click', (e) => {
+            e.preventDefault();
+            localStorage.removeItem('currentUser');
+            alert('Logged out successfully!');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

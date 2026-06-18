@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Status - Virtual School Tour</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .status-container { padding: 5rem 0; margin-top: 70px; }
+        .status-overview { text-align: center; padding: 3rem; background: var(--success-color); color: white; border-radius: 15px; margin-bottom: 3rem; }
+        .status-list { max-width: 900px; margin: 0 auto; }
+        .status-item { background: white; padding: 1.5rem; margin-bottom: 1rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; }
+        .status-badge { padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem; }
+        .status-operational { background: #d1fae5; color: #065f46; }
+        .status-degraded { background: #fed7aa; color: #92400e; }
+        .status-down { background: #fecaca; color: #991b1b; }
+        .incidents { background: var(--light-color); padding: 3rem; border-radius: 15px; margin-top: 3rem; }
+        .incident-item { background: white; padding: 1.5rem; margin-bottom: 1rem; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Campus Virtual Tour</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="status.html" class="nav-link active">Status</a>
+                <a href="login.html" class="nav-link login-btn">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="status-container">
+        <div class="container">
+            <h1 class="section-title">System Status</h1>
+            
+            <div class="status-overview">
+                <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                <h2>All Systems Operational</h2>
+                <p>Last Updated: June 18, 2026 at 10:30 AM</p>
+            </div>
+
+            <div class="status-list">
+                <h2 style="margin-bottom: 1.5rem;">Service Status</h2>
+                
+                <div class="status-item">
+                    <div>
+                        <h3><i class="fas fa-globe"></i> Website</h3>
+                        <p style="color: #64748b; font-size: 0.9rem;">Main website and landing pages</p>
+                    </div>
+                    <span class="status-badge status-operational">Operational</span>
+                </div>
+
+                <div class="status-item">
+                    <div>
+                        <h3><i class="fas fa-video"></i> Virtual Tour</h3>
+                        <p style="color: #64748b; font-size: 0.9rem;">360° tours and interactive features</p>
+                    </div>
+                    <span class="status-badge status-operational">Operational</span>
+                </div>
+
+                <div class="status-item">
+                    <div>
+                        <h3><i class="fas fa-user-lock"></i> Authentication</h3>
+                        <p style="color: #64748b; font-size: 0.9rem;">Login, registration, and user accounts</p>
+                    </div>
+                    <span class="status-badge status-operational">Operational</span>
+                </div>
+
+                <div class="status-item">
+                    <div>
+                        <h3><i class="fas fa-map"></i> Campus Map</h3>
+                        <p style="color: #64748b; font-size: 0.9rem;">Interactive maps and navigation</p>
+                    </div>
+                    <span class="status-badge status-operational">Operational</span>
+                </div>
+
+                <div class="status-item">
+                    <div>
+                        <h3><i class="fas fa-envelope"></i> Email Notifications</h3>
+                        <p style="color: #64748b; font-size: 0.9rem;">System emails and newsletters</p>
+                    </div>
+                    <span class="status-badge status-operational">Operational</span>
+                </div>
+
+                <div class="status-item">
+                    <div>
+                        <h3><i class="fas fa-comment"></i> Live Chat Support</h3>
+                        <p style="color: #64748b; font-size: 0.9rem;">Real-time customer support</p>
+                    </div>
+                    <span class="status-badge status-operational">Operational</span>
+                </div>
+            </div>
+
+            <div class="incidents">
+                <h2 style="margin-bottom: 1.5rem;">Incident History</h2>
+                <p style="color: #64748b; margin-bottom: 2rem;">Past incidents and maintenance windows</p>
+                
+                <div class="incident-item">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h4>Scheduled Maintenance</h4>
+                        <span style="color: #64748b; font-size: 0.9rem;">June 15, 2026</span>
+                    </div>
+                    <p>Completed routine maintenance and system updates. No user impact.</p>
+                    <span class="status-badge status-operational" style="display: inline-block; margin-top: 1rem;">Resolved</span>
+                </div>
+
+                <div class="incident-item">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                        <h4>Brief Service Interruption</h4>
+                        <span style="color: #64748b; font-size: 0.9rem;">June 10, 2026</span>
+                    </div>
+                    <p>Virtual tour experienced 15-minute downtime due to server update. Service fully restored.</p>
+                    <span class="status-badge status-operational" style="display: inline-block; margin-top: 1rem;">Resolved</span>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p>Subscribe to status updates</p>
+                <button class="btn btn-primary" style="margin-top: 1rem;">
+                    <i class="fas fa-bell"></i> Get Notifications
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Virtual School Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

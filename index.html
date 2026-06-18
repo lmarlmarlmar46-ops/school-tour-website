@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual School Tour - Explore Our Campus</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Campus Virtual Tour</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="tour.html" class="nav-link">Virtual Tour</a>
+                <a href="map.html" class="nav-link">Campus Map</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="login.html" class="nav-link login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="fade-in">Welcome to Our School</h1>
+            <p class="fade-in-delay">Discover Our State-of-the-Art Campus Through an Immersive Virtual Experience</p>
+            <div class="hero-buttons fade-in-delay-2">
+                <a href="tour.html" class="btn btn-primary">Start Virtual Tour</a>
+                <a href="register.html" class="btn btn-secondary">Register Now</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Search Bar with Auto-Suggest -->
+    <section class="search-section">
+        <div class="container">
+            <div class="search-container">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Search rooms, facilities, departments..." autocomplete="off">
+                <div class="search-suggestions" id="searchSuggestions"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Campus Overview -->
+    <section class="campus-overview">
+        <div class="container">
+            <h2 class="section-title">Our Campus at a Glance</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-building"></i>
+                    <h3>5 Floors</h3>
+                    <p>Modern Architecture</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-door-open"></i>
+                    <h3>120+ Rooms</h3>
+                    <p>Diverse Facilities</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users"></i>
+                    <h3>2000+ Students</h3>
+                    <p>Vibrant Community</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>150+ Teachers</h3>
+                    <p>Expert Educators</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facilities Showcase -->
+    <section class="facilities">
+        <div class="container">
+            <h2 class="section-title">Our Facilities</h2>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-image" style="background-image: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800');">
+                        <div class="facility-overlay">
+                            <a href="tour.html#gym" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                    <div class="facility-content">
+                        <h3><i class="fas fa-dumbbell"></i> Gymnasium</h3>
+                        <p>Professional-grade equipment, basketball court, and fitness center</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800');">
+                        <div class="facility-overlay">
+                            <a href="tour.html#sciencelab" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                    <div class="facility-content">
+                        <h3><i class="fas fa-flask"></i> Science Labs</h3>
+                        <p>Fully equipped Physics, Chemistry, and Biology laboratories</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-image" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800');">
+                        <div class="facility-overlay">
+                            <a href="tour.html#comlab" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                    <div class="facility-content">
+                        <h3><i class="fas fa-laptop"></i> Computer Labs</h3>
+                        <p>Modern computers with high-speed internet and latest software</p>
+                    </div>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-image" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800');">
+                        <div class="facility-overlay">
+                            <a href="tour.html#library" class="explore-btn">Explore</a>
+                        </div>
+                    </div>
+                    <div class="facility-content">
+                        <h3><i class="fas fa-book"></i> Library</h3>
+                        <p>Extensive collection of books, digital resources, and study areas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing & Comparison -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Tour Packages</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic Tour</h3>
+                    <div class="price">Free</div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Virtual Tour Access</li>
+                        <li><i class="fas fa-check"></i> Campus Map</li>
+                        <li><i class="fas fa-check"></i> Photo Gallery</li>
+                        <li><i class="fas fa-times"></i> Live Q&A Session</li>
+                        <li><i class="fas fa-times"></i> Personalized Guide</li>
+                    </ul>
+                    <a href="register.html" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="badge">Popular</div>
+                    <h3>Premium Tour</h3>
+                    <div class="price">₱950</div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Virtual Tour Access</li>
+                        <li><i class="fas fa-check"></i> Campus Map</li>
+                        <li><i class="fas fa-check"></i> Photo Gallery</li>
+                        <li><i class="fas fa-check"></i> Live Q&A Session</li>
+                        <li><i class="fas fa-check"></i> Personalized Guide</li>
+                    </ul>
+                    <a href="register.html" class="btn btn-primary">Get Started</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>In-Person Visit</h3>
+                    <div class="price">Schedule</div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i> Physical Campus Tour</li>
+                        <li><i class="fas fa-check"></i> Meet Teachers</li>
+                        <li><i class="fas fa-check"></i> Visit Classrooms</li>
+                        <li><i class="fas fa-check"></i> Lunch Included</li>
+                        <li><i class="fas fa-check"></i> Admission Counseling</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Schedule Visit</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Stay Updated</h2>
+                <p>Subscribe to our newsletter for the latest updates, events, and news</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification Bell -->
+    <div class="notification-bell" id="notificationBell">
+        <i class="fas fa-bell"></i>
+        <span class="notification-badge">3</span>
+    </div>
+
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="close-notifications"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <i class="fas fa-calendar"></i>
+                <div>
+                    <strong>Open House Event</strong>
+                    <p>Join us this Saturday for a campus tour</p>
+                    <span class="time">2 hours ago</span>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <i class="fas fa-star"></i>
+                <div>
+                    <strong>New Virtual Tour Available</strong>
+                    <p>Check out our updated gymnasium tour</p>
+                    <span class="time">1 day ago</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <i class="fas fa-info-circle"></i>
+                <div>
+                    <strong>System Update</strong>
+                    <p>Website maintenance scheduled</p>
+                    <span class="time">3 days ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>About Our School</h4>
+                    <p>Excellence in education since 1995. We provide a nurturing environment for students to grow academically and personally.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="tour.html">Virtual Tour</a></li>
+                        <li><a href="help.html">Help Center</a></li>
+                        <li><a href="status.html">System Status</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Info</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Rizal Avenue, Makati City, Metro Manila, Philippines 1200</li>
+                        <li><i class="fas fa-phone"></i> +63 (02) 8123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@schooltour.edu.ph</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Virtual School Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

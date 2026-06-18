@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Tour - Campus Walkthrough</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { margin-top: 70px; }
+        .tour-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .floor-selector {
+            background: white;
+            padding: 2rem 0;
+            position: sticky;
+            top: 70px;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .floor-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .floor-btn {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+        .floor-btn:hover, .floor-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        .tour-section {
+            padding: 4rem 0;
+        }
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .tour-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .tour-card:hover {
+            transform: translateY(-10px);
+        }
+        .tour-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .tour-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        .tour-content {
+            padding: 1.5rem;
+        }
+        .tour-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        .tour-features {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+        .feature-tag {
+            background: var(--light-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .view-360 {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+        .view-360:hover {
+            background: var(--secondary-color);
+        }
+        .interactive-walkthrough {
+            background: var(--light-color);
+            padding: 4rem 0;
+            text-align: center;
+        }
+        .walkthrough-video {
+            max-width: 900px;
+            margin: 2rem auto;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .walkthrough-video iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Campus Virtual Tour</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="tour.html" class="nav-link active">Virtual Tour</a>
+                <a href="map.html" class="nav-link">Campus Map</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="login.html" class="nav-link login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="tour-hero">
+        <div class="container">
+            <h1>Interactive Campus Tour</h1>
+            <p>Explore every corner of our modern 5-floor facility</p>
+        </div>
+    </div>
+
+    <div class="floor-selector">
+        <div class="container">
+            <div class="floor-buttons">
+                <button class="floor-btn active" data-floor="ground">Ground Floor</button>
+                <button class="floor-btn" data-floor="first">First Floor</button>
+                <button class="floor-btn" data-floor="second">Second Floor</button>
+                <button class="floor-btn" data-floor="third">Third Floor</button>
+                <button class="floor-btn" data-floor="fourth">Fourth Floor</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ground Floor -->
+    <section class="tour-section" id="ground">
+        <div class="container">
+            <h2 class="section-title">Ground Floor</h2>
+            <div class="tour-grid">
+                <div class="tour-card" id="gym">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=800');">
+                        <div class="tour-badge">Popular</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3><i class="fas fa-dumbbell"></i> Gymnasium</h3>
+                        <p>State-of-the-art sports facility with professional equipment</p>
+                        <div class="tour-features">
+                            <span class="feature-tag">Basketball Court</span>
+                            <span class="feature-tag">Fitness Center</span>
+                            <span class="feature-tag">Indoor Track</span>
+                        </div>
+                        <a href="#" class="view-360"><i class="fas fa-street-view"></i> View 360°</a>
+                    </div>
+                </div>
+
+                <div class="tour-card" id="cafeteria">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1567521464027-f127ff144326?w=800');"></div>
+                    <div class="tour-content">
+                        <h3><i class="fas fa-utensils"></i> Cafeteria</h3>
+                        <p>Modern dining facility serving healthy and delicious meals</p>
+                        <div class="tour-features">
+                            <span class="feature-tag">500 Seats</span>
+                            <span class="feature-tag">Outdoor Seating</span>
+                            <span class="feature-tag">Healthy Menu</span>
+                        </div>
+                        <a href="#" class="view-360"><i class="fas fa-street-view"></i> View 360°</a>
+                    </div>
+                </div>
+
+                <div class="tour-card" id="library">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800');"></div>
+                    <div class="tour-content">
+                        <h3><i class="fas fa-book"></i> Library</h3>
+                        <p>Extensive collection with digital resources and study areas</p>
+                        <div class="tour-features">
+                            <span class="feature-tag">50,000+ Books</span>
+                            <span class="feature-tag">Digital Archive</span>
+                            <span class="feature-tag">Study Rooms</span>
+                        </div>
+                        <a href="#" class="view-360"><i class="fas fa-street-view"></i> View 360°</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- First Floor -->
+    <section class="tour-section" id="first" style="display:none;">
+        <div class="container">
+            <h2 class="section-title">First Floor</h2>
+            <div class="tour-grid">
+                <div class="tour-card" id="sciencelab">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800');">
+                        <div class="tour-badge">New</div>
+                    </div>
+                    <div class="tour-content">
+                        <h3><i class="fas fa-flask"></i> Science Laboratory</h3>
+                        <p>Fully equipped labs for Physics, Chemistry, and Biology</p>
+                        <div class="tour-features">
+                            <span class="feature-tag">Modern Equipment</span>
+                            <span class="feature-tag">Safety Systems</span>
+                            <span class="feature-tag">3 Labs</span>
+                        </div>
+                        <a href="#" class="view-360"><i class="fas fa-street-view"></i> View 360°</a>
+                    </div>
+                </div>
+
+                <div class="tour-card" id="comlab">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800');"></div>
+                    <div class="tour-content">
+                        <h3><i class="fas fa-laptop"></i> Computer Laboratory</h3>
+                        <p>High-speed computers with latest software and technology</p>
+                        <div class="tour-features">
+                            <span class="feature-tag">60 Workstations</span>
+                            <span class="feature-tag">High-Speed Internet</span>
+                            <span class="feature-tag">Latest Software</span>
+                        </div>
+                        <a href="#" class="view-360"><i class="fas fa-street-view"></i> View 360°</a>
+                    </div>
+                </div>
+
+                <div class="tour-card" id="artroom">
+                    <div class="tour-image" style="background-image: url('https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800');"></div>
+                    <div class="tour-content">
+                        <h3><i class="fas fa-palette"></i> Art Studio</h3>
+                        <p>Creative space for painting, sculpting, and artistic expression</p>
+                        <div class="tour-features">
+                            <span class="feature-tag">Natural Light</span>
+                            <span class="feature-tag">Art Supplies</span>
+                            <span class="feature-tag">Exhibition Area</span>
+                        </div>
+                        <a href="#" class="view-360"><i class="fas fa-street-view"></i> View 360°</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Walkthrough -->
+    <section class="interactive-walkthrough">
+        <div class="container">
+            <h2 class="section-title">360° Virtual Walkthrough</h2>
+            <p>Experience our campus like you're really here</p>
+            <div class="walkthrough-video">
+                <iframe src="https://www.youtube.com/embed/NC1hR5mFcpU" allowfullscreen></iframe>
+            </div>
+            <p style="margin-top: 1rem; color: #64748b; font-size: 0.9rem;">Sample school virtual tour video - Replace with your own school video</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Virtual School Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        const floorBtns = document.querySelectorAll('.floor-btn');
+        const floorSections = document.querySelectorAll('.tour-section');
+
+        floorBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                floorBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const floor = btn.getAttribute('data-floor');
+                floorSections.forEach(section => {
+                    section.style.display = 'none';
+                });
+                document.getElementById(floor).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>

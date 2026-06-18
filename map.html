@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Map - Virtual School Tour</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { margin-top: 70px; }
+        .map-container {
+            padding: 4rem 0;
+        }
+        .map-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .interactive-map {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .map-svg {
+            width: 100%;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            background: var(--light-color);
+        }
+        .map-legend {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem;
+            background: var(--light-color);
+            border-radius: 8px;
+        }
+        .legend-color {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+        }
+        .floor-map {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+        .room-marker {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .room-marker:hover {
+            transform: scale(1.2);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+        .room-tooltip {
+            position: absolute;
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 100;
+        }
+        .address-section {
+            background: var(--light-color);
+            padding: 4rem 0;
+        }
+        .address-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        .address-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .address-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+        }
+        .address-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .google-map {
+            margin-top: 2rem;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .google-map iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Campus Virtual Tour</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About Us</a>
+                <a href="tour.html" class="nav-link">Virtual Tour</a>
+                <a href="map.html" class="nav-link active">Campus Map</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+                <a href="login.html" class="nav-link login-btn">Login</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="map-container">
+        <div class="container">
+            <div class="map-header">
+                <h1>Interactive Campus Map</h1>
+                <p>Navigate through our 5-floor facility with ease</p>
+            </div>
+
+            <div class="interactive-map">
+                <h2>Campus Floor Plan</h2>
+                <svg class="map-svg" viewBox="0 0 800 600" style="height: 500px;">
+                    <!-- Building Outline -->
+                    <rect x="50" y="50" width="700" height="500" fill="#f1f5f9" stroke="#2563eb" stroke-width="3"/>
+                    
+                    <!-- Ground Floor Rooms -->
+                    <rect x="80" y="80" width="200" height="150" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+                    <text x="180" y="155" text-anchor="middle" font-size="16" font-weight="bold">Gymnasium</text>
+                    
+                    <rect x="320" y="80" width="200" height="150" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+                    <text x="420" y="155" text-anchor="middle" font-size="16" font-weight="bold">Library</text>
+                    
+                    <rect x="550" y="80" width="170" height="150" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+                    <text x="635" y="145" text-anchor="middle" font-size="16" font-weight="bold">Cafeteria</text>
+                    
+                    <!-- First Floor -->
+                    <rect x="80" y="270" width="200" height="120" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="180" y="330" text-anchor="middle" font-size="16" font-weight="bold">Science Lab</text>
+                    
+                    <rect x="320" y="270" width="200" height="120" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="420" y="320" text-anchor="middle" font-size="14" font-weight="bold">Computer Lab</text>
+                    
+                    <rect x="550" y="270" width="170" height="120" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="635" y="330" text-anchor="middle" font-size="16" font-weight="bold">Art Room</text>
+                    
+                    <!-- Corridors -->
+                    <rect x="290" y="80" width="20" height="470" fill="#cbd5e1"/>
+                    <rect x="530" y="80" width="20" height="470" fill="#cbd5e1"/>
+                    
+                    <!-- Entrance -->
+                    <rect x="350" y="550" width="100" height="10" fill="#10b981"/>
+                    <text x="400" y="580" text-anchor="middle" font-size="14" fill="#10b981" font-weight="bold">Main Entrance</text>
+                    
+                    <!-- Stairs -->
+                    <circle cx="100" cy="500" r="20" fill="#ef4444"/>
+                    <text x="100" y="505" text-anchor="middle" font-size="12" fill="white" font-weight="bold">STAIRS</text>
+                    
+                    <circle cx="700" cy="500" r="20" fill="#ef4444"/>
+                    <text x="700" y="505" text-anchor="middle" font-size="12" fill="white" font-weight="bold">STAIRS</text>
+                </svg>
+
+                <div class="map-legend">
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #dbeafe;"></div>
+                        <span>Ground Floor - Recreation & Resources</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #fef3c7;"></div>
+                        <span>First Floor - Academic Facilities</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #cbd5e1;"></div>
+                        <span>Corridors & Hallways</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-color" style="background: #ef4444;"></div>
+                        <span>Stairways & Elevators</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Address Section -->
+    <section class="address-section">
+        <div class="container">
+            <div class="address-card">
+                <h2 style="text-align: center; margin-bottom: 2rem;">Our Location</h2>
+                <div class="address-grid">
+                    <div class="address-item">
+                        <div class="address-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Rizal Avenue<br>Makati City, Metro Manila<br>Philippines 1200</p>
+                        </div>
+                    </div>
+                    <div class="address-item">
+                        <div class="address-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>Main: +63 (02) 8123-4567<br>Admissions: +63 (02) 8123-4568<br>Mobile: +63 917-123-4567</p>
+                        </div>
+                    </div>
+                    <div class="address-item">
+                        <div class="address-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Visiting Hours</h4>
+                            <p>Monday - Friday: 8AM - 5PM<br>Saturday: 9AM - 2PM<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                    <div class="address-item">
+                        <div class="address-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@schooltour.edu.ph<br>admissions@schooltour.edu.ph<br>support@schooltour.edu.ph</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="google-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.5445826934835!2d121.01896931483866!3d14.554729489829726!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c90264a0ed49%3A0x2b8c7ea41e135f84!2sMakati%2C%20Metro%20Manila%2C%20Philippines!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Virtual School Tour. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

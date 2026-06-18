@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Virtual School Tour</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 2rem;
+        }
+        
+        .auth-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            margin: 2rem 0;
+        }
+        
+        .auth-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .auth-header h1 {
+            color: var(--dark-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .password-strength {
+            height: 5px;
+            background: var(--border-color);
+            border-radius: 3px;
+            margin-top: 0.5rem;
+            overflow: hidden;
+        }
+        
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: all 0.3s;
+        }
+        
+        .weak { width: 33%; background: var(--danger-color); }
+        .medium { width: 66%; background: var(--warning-color); }
+        .strong { width: 100%; background: var(--success-color); }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        .auth-footer {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .terms-checkbox {
+            display: flex;
+            align-items: start;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .terms-checkbox input {
+            margin-top: 0.3rem;
+        }
+        
+        .success-message {
+            background: #d1fae5;
+            color: #065f46;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: none;
+        }
+        
+        .success-message.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <i class="fas fa-user-plus" style="font-size: 3rem; color: var(--primary-color);"></i>
+                <h1>Create Account</h1>
+                <p>Join us for an amazing virtual tour experience</p>
+            </div>
+            
+            <div class="success-message" id="successMessage"></div>
+            
+            <form id="registerForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="john.doe@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+63 917-123-4567" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="userType">I am a</label>
+                    <select id="userType" required>
+                        <option value="">Select one...</option>
+                        <option value="student">Student</option>
+                        <option value="parent">Parent</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="visitor">Visitor</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Create a strong password" required>
+                    <div class="password-strength">
+                        <div class="password-strength-bar" id="strengthBar"></div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Re-enter your password" required>
+                </div>
+                
+                <div class="terms-checkbox">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the <a href="terms.html" style="color: var(--primary-color);">Terms of Service</a> and <a href="privacy.html" style="color: var(--primary-color);">Privacy Policy</a></label>
+                </div>
+                
+                <button type="submit" class="submit-btn">Create Account</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html" style="color: var(--primary-color);">Login here</a></p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="index.html" style="color: var(--text-color);">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const strengthBar = document.getElementById('strengthBar');
+            const registerForm = document.getElementById('registerForm');
+            const successMessage = document.getElementById('successMessage');
+            
+            if (!registerForm) {
+                console.error('Register form not found!');
+                return;
+            }
+            
+            // Password strength checker
+            if (passwordInput && strengthBar) {
+                passwordInput.addEventListener('input', () => {
+            const password = passwordInput.value;
+            let strength = 0;
+            
+            if (password.length >= 8) strength++;
+            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
+            if (password.match(/[0-9]/)) strength++;
+            if (password.match(/[^a-zA-Z0-9]/)) strength++;
+            
+            strengthBar.className = 'password-strength-bar';
+            if (strength <= 2) {
+                strengthBar.classList.add('weak');
+            } else if (strength === 3) {
+                strengthBar.classList.add('medium');
+            } else {
+                strengthBar.classList.add('strong');
+            }
+                });
+            }
+            
+            // Form submission
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const firstName = document.getElementById('firstName');
+                const lastName = document.getElementById('lastName');
+                const email = document.getElementById('email');
+                const phone = document.getElementById('phone');
+                const userType = document.getElementById('userType');
+                const password = document.getElementById('password');
+                const confirmPassword = document.getElementById('confirmPassword');
+                
+                // Validate all fields exist
+                if (!firstName || !lastName || !email || !phone || !userType || !password || !confirmPassword) {
+                    alert('Form fields not found. Please refresh the page.');
+                    return;
+                }
+                
+                // Get values
+                const passwordValue = password.value;
+                const confirmPasswordValue = confirmPassword.value;
+                
+                // Validate passwords match
+                if (passwordValue !== confirmPasswordValue) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+                
+                // Validate password length
+                if (passwordValue.length < 8) {
+                    alert('Password must be at least 8 characters long!');
+                    return;
+                }
+                
+                // Validate user type is selected
+                if (!userType.value) {
+                    alert('Please select a user type!');
+                    return;
+                }
+                
+                try {
+                    // Create user object
+                    const user = {
+                        firstName: firstName.value.trim(),
+                        lastName: lastName.value.trim(),
+                        name: firstName.value.trim() + ' ' + lastName.value.trim(),
+                        email: email.value.trim(),
+                        phone: phone.value.trim(),
+                        userType: userType.value,
+                        password: passwordValue,
+                        registeredDate: new Date().toISOString()
+                    };
+                    
+                    console.log('Creating user:', user.email);
+                    
+                    // Get existing users or initialize empty array
+                    const users = JSON.parse(localStorage.getItem('users') || '[]');
+                    
+                    // Check if email already exists
+                    if (users.some(u => u.email === user.email)) {
+                        alert('Email already registered! Please login instead.');
+                        return;
+                    }
+                    
+                    // Add new user
+                    users.push(user);
+                    localStorage.setItem('users', JSON.stringify(users));
+                    
+                    console.log('User registered successfully:', user.email);
+                    console.log('Total users now:', users.length);
+                    
+                    successMessage.textContent = 'Account created successfully! Redirecting to login...';
+                    successMessage.classList.add('active');
+                    
+                    setTimeout(() => {
+                        window.location.href = 'login.html';
+                    }, 2000);
+                } catch (error) {
+                    console.error('Registration error:', error);
+                    alert('An error occurred during registration. Please make sure your browser allows localStorage.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
