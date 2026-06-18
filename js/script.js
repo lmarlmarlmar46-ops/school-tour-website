@@ -10,16 +10,16 @@ if (hamburger) {
 
 // Search with Auto-Suggest
 const searchData = [
-    { name: 'Gymnasium', icon: 'fa-dumbbell', link: 'tour.html#gym' },
-    { name: 'Science Lab', icon: 'fa-flask', link: 'tour.html#sciencelab' },
-    { name: 'Computer Lab', icon: 'fa-laptop', link: 'tour.html#comlab' },
-    { name: 'Library', icon: 'fa-book', link: 'tour.html#library' },
-    { name: 'Cafeteria', icon: 'fa-utensils', link: 'tour.html#cafeteria' },
-    { name: 'Auditorium', icon: 'fa-theater-masks', link: 'tour.html#auditorium' },
-    { name: 'Art Room', icon: 'fa-palette', link: 'tour.html#artroom' },
-    { name: 'Music Room', icon: 'fa-music', link: 'tour.html#musicroom' },
-    { name: 'Playground', icon: 'fa-child', link: 'tour.html#playground' },
-    { name: 'Principal Office', icon: 'fa-user-tie', link: 'tour.html#office' }
+    { name: 'Gymnasium', icon: 'fa-dumbbell', link: 'pages/tour.html#gym' },
+    { name: 'Science Lab', icon: 'fa-flask', link: 'pages/tour.html#sciencelab' },
+    { name: 'Computer Lab', icon: 'fa-laptop', link: 'pages/tour.html#comlab' },
+    { name: 'Library', icon: 'fa-book', link: 'pages/tour.html#library' },
+    { name: 'Cafeteria', icon: 'fa-utensils', link: 'pages/tour.html#cafeteria' },
+    { name: 'Auditorium', icon: 'fa-theater-masks', link: 'pages/tour.html#auditorium' },
+    { name: 'Art Room', icon: 'fa-palette', link: 'pages/tour.html#artroom' },
+    { name: 'Music Room', icon: 'fa-music', link: 'pages/tour.html#musicroom' },
+    { name: 'Playground', icon: 'fa-child', link: 'pages/tour.html#playground' },
+    { name: 'Principal Office', icon: 'fa-user-tie', link: 'pages/tour.html#office' }
 ];
 
 const searchInput = document.getElementById('searchInput');
@@ -134,7 +134,7 @@ function updateLoginStatus() {
     if (loginBtn && isLoggedIn()) {
         const user = getFromLocalStorage('currentUser');
         loginBtn.textContent = user.name;
-        loginBtn.href = 'dashboard.html';
+        loginBtn.href = 'pages/dashboard.html';
     }
 }
 
